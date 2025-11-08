@@ -1,0 +1,20 @@
+name: Probar Specter-Guard
+
+on: [pull_request] # Se ejecuta en cada Pull Request
+
+jobs:
+  security_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ejecutar Specter-CodeGuard-AI
+
+        # ¡Ya he puesto tu nombre de usuario aquí!
+        # Apunta a tu repositorio de la herramienta
+        uses: forkaizen2023-sys/Specter-CodeGuard-Action@main 
+
+        with:
+          # Pasa el token de GitHub (necesario para la API)
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+          # Pasa la URL secreta de n8n que guardamos
+          n8n-webhook-url: ${{ secrets.N8N_WEBHOOK_URL }}
